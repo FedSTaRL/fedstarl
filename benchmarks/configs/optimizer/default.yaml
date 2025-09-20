@@ -1,0 +1,17 @@
+central:
+  name: adam
+  learning_rate: ${training.central.learning_rate}
+  # optimizer specific arguments
+  beta1: 0.9
+  beta2: 0.99
+  weight_decay: 1e-05
+  eps: 0.01
+
+federated:
+  name: adam
+  learning_rate: ${training.central.learning_rate}
+  # optimizer specific arguments
+  beta1: 0.9
+  beta2: 0.99
+  weight_decay: 1e-05
+  eps: 0.01

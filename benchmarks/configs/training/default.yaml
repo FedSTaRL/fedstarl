@@ -1,0 +1,15 @@
+aggregation_algorithm:
+  name: fedavg
+central: # global
+  batch_size: 32
+  num_iterations: 20
+  learning_rate: 0.001
+  evaluation_frequency: 3 
+federated: # local
+  batch_size: ${training.central.batch_size}
+  cohort_size: 10
+  val_cohort_size: 10
+  num_epochs: 1 
+  learning_rate: 0.001
+
+

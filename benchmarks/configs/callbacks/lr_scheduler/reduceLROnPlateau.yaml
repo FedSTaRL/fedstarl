@@ -1,0 +1,7 @@
+name: ReduceLROnPlateau
+apply: True
+mode: min
+factor: 0.8
+patience: 10
+min_lr: 1e-06
+monitor: central/loss (val)

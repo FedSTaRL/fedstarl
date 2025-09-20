@@ -1,0 +1,21 @@
+local:
+  mechanism: null
+  clipping_bound: null
+  epsilon: null
+  delta: null
+  #order: null
+  is_local: null
+  
+central:
+  mechanism: null
+  clipping_bound: null
+  epsilon: null
+  delta: null
+  #order: null
+  cohort_size: null 
+  noise_cohort_size: null 
+  num_iterations: null
+  population: null
+  #min_separation: null
+  is_central: null
+  

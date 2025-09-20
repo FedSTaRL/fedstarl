@@ -1,0 +1,25 @@
+# gaussian mechanism
+local:
+  mechanism: None #gaussian
+  clipping_bound: 1e-12 # Bound for norm clipping so that the local privacy mechanism can be applied.
+  epsilon: 0.1 # Bound on the privacy loss (often called ε) for the local privacy mechanism.
+  delta: 1e-06 # Bound on the probability that the privacy loss is greater than ε (often called δ) for the local privacy mechanism
+  order: null # Order of the lp-norm for central norm clipping only.
+  is_local: False
+  
+central:
+  mechanism: gaussian_moments_accountant
+  clipping_bound: 10.0 # Bound for norm clipping for each user, so that the central privacy mechanism can be applied.
+  epsilon: 2 # Bound on the privacy loss (often called ε) for the central privacy mechanism.
+  delta: 1e-08 # Bound on the probability that the privacy loss is greater than ε (often called δ) for the central privacy mechanism.
+  order: null # Order of the lp-norm for central norm clipping only.
+  cohort_size: ${training.federated.cohort_size}
+  noise_cohort_size: ${training.federated.cohort_size} # 'The cohort size to use when calculating noise for DP. '
+                          # 'If you run cohort_size=100 but noise_cohort_size=1000, '
+                          # 'then the noise will be scaled down by a factor of 0.1 '
+                          # 'and your results will only be valid if running with '
+                          # 'cohort_size=1000 outside simulation'
+  num_iterations: ${training.central.num_iterations} # number of commonucation rounds
+  population: 43 # Size of population (i.e. number of training users)
+  is_central: True
+  

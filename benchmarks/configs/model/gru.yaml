@@ -1,0 +1,17 @@
+# lstm
+name: gru
+input_size: 8
+hidden_size: 16
+num_layers: 5
+bias: true
+batch_first: false
+dropout: 0.3
+bidirectional: false
+# Output head
+output_head:
+  task: classification
+  d_out: 1
+  d_hidden: null
+  activation_output: 'relu'
+  reduced: true
+  cls_method: autoregressive

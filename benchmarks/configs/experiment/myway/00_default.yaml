@@ -1,0 +1,11 @@
+# @package _global_
+# place your experiments in this file or add new files 
+# see hydra for how to setup experiment configurations
+
+# defaults:
+#   - override /aggregation_algorithm: fedavg # default
+#   - override /callbacks/lr_scheduler: reduceLROnPlateau
+#   - override /dataset: default
+#   - override /model: rnn
+#   - override /privacy: default # no dp mechanism applied
+#   - override /training: default

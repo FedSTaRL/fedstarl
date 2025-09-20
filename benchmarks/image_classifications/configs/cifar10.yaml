@@ -1,0 +1,64 @@
+aggregation_algorithm:
+  name: fedavg
+callbacks:
+  lr_scheduler:
+    apply: True
+    monitor: 'Central val | loss'
+  restore_training:
+    model_path: null
+  model_ckpt:
+    save_model_path: null
+dataset:
+  name: cifar10_iid
+  raw_data_dir: data/cifar10
+  #processed_data_dir: data/cifar10/procsessed/cifar10_iid
+  # Mean datapoint per user and distribution to sample from. 
+  # Does not affect femnist because the datapoints are already 
+  # divided into real users.
+  mean_datapoints_per_user: 100
+  datapoints_per_user_distribution: constant
+  minimum_num_datapoints_per_user: 1
+  partition_alpha: 0.1 # only used for ciifar10 noniid
+logger:
+  project_id: fed-cifar10
+model:
+  name: simple_cnn
+optimizer:
+  central:
+    name: adam
+    weight_decay: 1e-08
+privacy:
+  central:
+    mechanism: null #gaussian_moments_accountant
+    epsilon: 2.0
+    delta: 1e-6
+    clipping_bound: 0.4
+    noise_cohort_size: 100
+    order: null
+    cohort_size: 100
+    num_epochs: ${training.central.num_iterations}
+    population: 500
+    min_separation: null
+    is_central: False #True
+  local:
+    mechanism: null # gaussian
+    clipping_bound: 0.4 # 0.4
+    epsilon: 80.0  # 10.0
+    delta: 0.5e-1 #1e-06
+    local_order: null 
+    is_local: False
+training:
+  central:
+    learning_rate: 0.15
+    num_iterations: 1500
+    evaluation_frequency: 10
+    central_eval_batch_size: 10000
+  local:
+    cohort_size: 100
+    val_cohort_size: 0 
+    num_epochs: 1
+    learning_rate: 0.15
+    weight_by_samples: false
+    batch_size: 50
+seed: 42
+use_pfl_internals: False

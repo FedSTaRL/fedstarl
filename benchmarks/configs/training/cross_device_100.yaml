@@ -1,0 +1,15 @@
+central: # global
+  batch_size: 256
+  num_iterations: 50
+  learning_rate: 0.01 #0.0067958749999999
+  evaluation_frequency: 2 
+federated: # local
+  batch_size: 256
+  # cohort size
+  # 10: 
+  # 40: 3558 --> 20%: 712
+  # 100: 119 --> 20%: 24
+  cohort_size: 24 
+  val_cohort_size: null #24 trains faster
+  num_epochs: 1
+  learning_rate: 0.01 #0.0067958749999999

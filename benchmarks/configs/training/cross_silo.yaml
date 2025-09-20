@@ -1,0 +1,13 @@
+central: # global
+  batch_size: 256
+  num_iterations: 50
+  learning_rate: 0.01 #0.0067958749999999
+  evaluation_frequency: 2 
+federated: # local
+  batch_size: 256
+  cohort_size: 9 # total number of clients 43 --> 43*0.2 \approx 9
+  val_cohort_size: 9
+  num_epochs: 5
+  learning_rate: 0.01 #0.0067958749999999
+
+

@@ -1,0 +1,20 @@
+seed: 42
+dataset: '' # specify your dataset name
+run: null
+
+defaults:
+  - _self_
+  #- callbacks/early_stop: default
+  #- callbacks/model_ckpt: default
+  - aggregation_algorithm: fedavg
+  - callbacks/lr_scheduler: default
+  - callbacks/central_evaluation: default
+  - dataset: default # needs to be setup
+  - loss: bce
+  - logger: wandb
+  - model: lstm
+  - optimizer: default
+  - privacy: default 
+  #- system: system
+  - training: default
+  
